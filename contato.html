@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Entre em contato com o CyberGuard, projeto acadêmico sobre cibersegurança e segurança digital.">
+
+    <title>Contato | CyberGuard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icone">CG</span>
+            <span>Cyber<span class="destaque">Guard</span></span>
+        </a>
+
+        <nav class="menu">
+             <a href="index.html" class="logo">CyberGuard.</a>
+  <a href="index.html">Início</a>
+  <a href="galeria.html">Conteúdos</a>
+  <a href="quiz.html">Quiz</a>
+  <a href="senhas.html">Verificar senha</a>
+  <a href="dicas.html">Dicas de segurança</a>
+  <a href="contato.html">Contato</a>
+        </nav>
+
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+        <section class="pagina-topo">
+
+            <span class="etiqueta">FALE CONOSCO</span>
+
+            <h1>
+                Vamos conversar sobre
+                <span class="destaque">segurança digital.</span>
+            </h1>
+
+            <p>
+                Tem dúvidas, sugestões ou quer saber mais sobre
+                cibersegurança? Envie sua mensagem pelo formulário.
+            </p>
+
+        </section>
+
+        <section class="secao contato-layout">
+
+            <!-- INFORMAÇÕES DE CONTATO -->
+            <div class="contato-info">
+
+                <span class="etiqueta">NOSSOS CANAIS</span>
+
+                <h2>Entre em contato</h2>
+
+                <p>
+                    Sua participação é importante para ampliar o
+                    conhecimento sobre proteção de dados e segurança
+                    na internet.
+                </p>
+
+                <div class="info-item">
+
+                    <span class="info-icone">✉</span>
+
+                    <div>
+                        <h3>E-mail</h3>
+                        <a href="mailto:mgxcreative7@gmail.com">
+                            mgxcreative7@gmail.com
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="info-item">
+
+                    <span class="info-icone">💬</span>
+
+                    <div>
+                        <h3>WhatsApp</h3>
+                        <p>
+                            Envie sua mensagem pelo formulário ao lado.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="aviso">
+                    <strong>Projeto acadêmico</strong>
+                    <p>
+                        O CyberGuard é um projeto desenvolvido para
+                        a disciplina de Desenvolvimento Web 1, com
+                        finalidade educativa.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- FORMULÁRIO -->
+            <form class="formulario" id="formContato">
+
+                <h2>Envie sua mensagem</h2>
+
+                <p class="form-descricao">
+                    Preencha os campos abaixo. Ao continuar, o WhatsApp
+                    será aberto com a mensagem pronta para envio.
+                </p>
+
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        placeholder="Digite seu nome"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="email">Seu e-mail</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="voce@exemplo.com"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="assunto">Assunto</label>
+                    <select id="assunto" name="assunto" required>
+                        <option value="">Selecione um assunto</option>
+                        <option value="Dúvida sobre cibersegurança">
+                            Dúvida sobre cibersegurança
+                        </option>
+                        <option value="Sugestão para o site">
+                            Sugestão para o site
+                        </option>
+                        <option value="Proteção de dados">
+                            Proteção de dados
+                        </option>
+                        <option value="Outro assunto">
+                            Outro assunto
+                        </option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea
+                        id="mensagem"
+                        name="mensagem"
+                        rows="5"
+                        placeholder="Escreva sua mensagem..."
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="botao-form">
+                    Continuar pelo WhatsApp ↗
+                </button>
+
+                <p class="nota-form">
+                    O WhatsApp será aberto para você revisar e enviar
+                    a mensagem. O site não envia nada automaticamente.
+                </p>
+
+                <p
+                    id="feedback"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+
+        <a href="index.html" class="logo">
+            <span class="logo-icone">CG</span>
+            <span>Cyber<span class="destaque">Guard</span></span>
+        </a>
+
+        <p>
+            Projeto acadêmico de Desenvolvimento Web 1.
+        </p>
+
+        <p class="copyright">
+            © 2026 CyberGuard — Educação e segurança digital.
+        </p>
+
+    </footer>
+
+    <!-- FUNCIONAMENTO DO FORMULÁRIO -->
+    <script>
+        const formulario = document.getElementById("formContato");
+
+        formulario.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // SUBSTITUA pelo número que receberá as mensagens.
+            // Use DDI + DDD + número, somente dígitos.
+            const numeroWhatsApp = "5521992676972";
+
+            if (numeroWhatsApp === "55DDDNUMERO") {
+                document.getElementById("feedback").textContent =
+                    "O formulário está pronto! Falta configurar o número de WhatsApp do destinatário.";
+                return;
+            }
+
+            const nome = document.getElementById("nome").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const assunto = document.getElementById("assunto").value;
+            const mensagem = document.getElementById("mensagem").value.trim();
+
+            const texto =
+                "Olá! Entrei em contato pelo site CyberGuard.%0A%0A" +
+                "Nome: " + encodeURIComponent(nome) + "%0A" +
+                "E-mail: " + encodeURIComponent(email) + "%0A" +
+                "Assunto: " + encodeURIComponent(assunto) + "%0A" +
+                "Mensagem: " + encodeURIComponent(mensagem);
+
+            const url =
+                "https://wa.me/" + numeroWhatsApp + "?text=" + texto;
+
+            window.open(url, "_blank", "noopener,noreferrer");
+        });
+    </script>
+
+</body>
+</html>

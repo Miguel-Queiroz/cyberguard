@@ -1,0 +1,489 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Teste seus conhecimentos sobre cibersegurança com o CyberGuard.">
+  <title>Quiz de Cibersegurança | CyberGuard</title>
+
+  <style>
+    :root {
+      --fundo: #07111f;
+      --painel: #101e30;
+      --verde: #42e69b;
+      --texto: #f1f5f9;
+      --suave: #aab8c9;
+      --borda: #26384d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--fundo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      border-bottom: 1px solid var(--borda);
+      padding: 20px;
+    }
+
+    nav {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      color: var(--verde);
+      font-size: 1.4rem;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:not(.logo) {
+      color: var(--texto);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--verde);
+    }
+
+    main {
+      width: min(720px, 92%);
+      margin: 55px auto;
+    }
+
+    .introducao {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .etiqueta {
+      color: var(--verde);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .8rem;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin: 14px 0;
+    }
+
+    .introducao p,
+    .explicacao {
+      color: var(--suave);
+      line-height: 1.7;
+    }
+
+    .painel {
+      background: var(--painel);
+      border: 1px solid var(--borda);
+      border-radius: 18px;
+      padding: clamp(20px, 5vw, 32px);
+    }
+
+    .progresso {
+      height: 7px;
+      background: #26384d;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 14px 0 24px;
+    }
+
+    #barra {
+      height: 100%;
+      width: 0%;
+      background: var(--verde);
+      transition: width .25s;
+    }
+
+    .detalhes {
+      color: var(--suave);
+      font-size: .9rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    #pergunta {
+      font-size: 1.35rem;
+      line-height: 1.5;
+      margin: 22px 0;
+    }
+
+    #alternativas {
+      display: grid;
+      gap: 12px;
+    }
+
+    .alternativa {
+      background: #14263b;
+      border: 1px solid var(--borda);
+      color: var(--texto);
+      text-align: left;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: border-color .2s, background .2s;
+    }
+
+    .alternativa:hover:not(:disabled) {
+      border-color: var(--verde);
+    }
+
+    .alternativa:focus-visible,
+    .botao:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--verde);
+      outline-offset: 3px;
+    }
+
+    .alternativa:disabled {
+      cursor: default;
+      opacity: .95;
+    }
+
+    .alternativa.correta {
+      border-color: var(--verde);
+      background: #123c30;
+    }
+
+    .alternativa.errada {
+      border-color: #ff7474;
+      background: #40252d;
+    }
+
+    #feedback {
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+
+    .botao {
+      background: var(--verde);
+      color: #07111f;
+      border: 0;
+      border-radius: 9px;
+      padding: 13px 20px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .botao:hover {
+      filter: brightness(.92);
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    #resultado {
+      text-align: center;
+    }
+
+    #pontuacao {
+      color: var(--verde);
+      font-size: 2.6rem;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--suave);
+      border-top: 1px solid var(--borda);
+      padding: 25px 15px;
+      margin-top: 60px;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 16px;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      main {
+        margin-top: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav aria-label="Navegação principal">
+      <a class="logo" href="index.html">CyberGuard<span>.</span></a>
+      <a href="index.html">Início</a>
+      <a href="galeria.html">Conteúdos</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="introducao">
+      <span class="etiqueta">Aprenda na prática</span>
+      <h1>Quiz de Cibersegurança</h1>
+      <p>
+        Você sabe identificar ameaças digitais?
+        Responda às perguntas e descubra seu nível de conhecimento.
+      </p>
+    </section>
+
+    <section class="painel" aria-label="Quiz">
+      <div id="jogo">
+        <div class="detalhes">
+          <span id="contador">Pergunta 1 de 6</span>
+          <span id="placar">Acertos: 0</span>
+        </div>
+
+        <div
+          class="progresso"
+          role="progressbar"
+          aria-label="Progresso do quiz"
+          aria-valuemin="0"
+          aria-valuemax="6"
+          aria-valuenow="0"
+          id="progresso"
+        >
+          <div id="barra"></div>
+        </div>
+
+        <h2 id="pergunta" tabindex="-1"></h2>
+        <div id="alternativas"></div>
+        <p id="feedback" aria-live="polite"></p>
+
+        <button class="botao" id="proximo" hidden>
+          Próxima pergunta
+        </button>
+      </div>
+
+      <div id="resultado" hidden aria-live="polite">
+        <span class="etiqueta">Quiz concluído</span>
+        <h2>Seu resultado</h2>
+        <p id="pontuacao"></p>
+        <p id="mensagemFinal" class="explicacao"></p>
+        <button class="botao" id="reiniciar">Jogar novamente</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>CyberGuard — Conhecimento é sua primeira linha de defesa.</p>
+  </footer>
+
+  <script>
+    const perguntas = [
+      {
+        pergunta: "Qual é a melhor prática para criar uma senha segura?",
+        alternativas: [
+          "Usar a mesma senha em todos os sites",
+          "Usar uma senha longa, única e difícil de adivinhar",
+          "Usar apenas a própria data de nascimento",
+          "Compartilhar a senha com amigos"
+        ],
+        correta: 1,
+        explicacao: "Senhas longas e únicas reduzem o risco de invasão. Um gerenciador de senhas pode ajudar."
+      },
+      {
+        pergunta: "Você recebeu um e-mail urgente pedindo para confirmar sua senha por um link. O que fazer?",
+        alternativas: [
+          "Clicar imediatamente",
+          "Responder com seus dados",
+          "Verificar o remetente e acessar o site oficial por conta própria",
+          "Encaminhar o e-mail para todos os contatos"
+        ],
+        correta: 2,
+        explicacao: "Mensagens de phishing tentam enganar você. Verifique o remetente e não use links suspeitos."
+      },
+      {
+        pergunta: "Para que serve a autenticação em dois fatores (2FA)?",
+        alternativas: [
+          "Adicionar uma camada extra de proteção à conta",
+          "Deixar a internet mais rápida",
+          "Eliminar a necessidade de qualquer senha",
+          "Compartilhar a conta com segurança"
+        ],
+        correta: 0,
+        explicacao: "O 2FA adiciona uma etapa de verificação além da senha, dificultando acessos indevidos."
+      },
+      {
+        pergunta: "O que fazer antes de instalar um programa desconhecido?",
+        alternativas: [
+          "Desativar o antivírus",
+          "Instalar sem verificar nada",
+          "Pedir a senha de um amigo",
+          "Verificar a fonte e confirmar se o programa é confiável"
+        ],
+        correta: 3,
+        explicacao: "Programas desconhecidos podem conter malware. Prefira fontes oficiais e verifique a reputação."
+      },
+      {
+        pergunta: "Você está usando uma rede Wi-Fi pública. Qual atitude é mais segura?",
+        alternativas: [
+          "Acessar qualquer link recebido",
+          "Evitar operações sensíveis em redes não confiáveis e conferir se os sites são legítimos",
+          "Desativar todas as proteções do celular",
+          "Compartilhar arquivos com qualquer dispositivo"
+        ],
+        correta: 1,
+        explicacao: "Redes públicas exigem cuidado. Confira os sites e evite atividades sensíveis quando não confiar na conexão."
+      },
+      {
+        pergunta: "Como proteger melhor sua privacidade nas redes sociais?",
+        alternativas: [
+          "Publicar endereço e rotina diariamente",
+          "Aceitar todos os pedidos de amizade",
+          "Revisar a privacidade e limitar os dados pessoais compartilhados",
+          "Usar a mesma senha em todas as contas"
+        ],
+        correta: 2,
+        explicacao: "Limitar informações pessoais e revisar as configurações de privacidade reduz sua exposição."
+      }
+    ];
+
+    let indice = 0;
+    let acertos = 0;
+    let respondida = false;
+
+    const elementoPergunta = document.getElementById("pergunta");
+    const elementoAlternativas = document.getElementById("alternativas");
+    const elementoFeedback = document.getElementById("feedback");
+    const botaoProximo = document.getElementById("proximo");
+
+    function mostrarPergunta() {
+      respondida = false;
+      const atual = perguntas[indice];
+
+      document.getElementById("contador").textContent =
+        `Pergunta ${indice + 1} de ${perguntas.length}`;
+
+      document.getElementById("placar").textContent =
+        `Acertos: ${acertos}`;
+
+      document.getElementById("barra").style.width =
+        `${(indice / perguntas.length) * 100}%`;
+
+      const progresso = document.getElementById("progresso");
+      progresso.setAttribute("aria-valuenow", indice);
+
+      elementoPergunta.textContent = atual.pergunta;
+      elementoAlternativas.replaceChildren();
+      elementoFeedback.textContent = "";
+      botaoProximo.hidden = true;
+
+      atual.alternativas.forEach((texto, i) => {
+        const botao = document.createElement("button");
+        botao.type = "button";
+        botao.className = "alternativa";
+        botao.textContent = `${String.fromCharCode(65 + i)}. ${texto}`;
+        botao.addEventListener("click", () => verificarResposta(i));
+        elementoAlternativas.appendChild(botao);
+      });
+    }
+
+    function verificarResposta(escolha) {
+      if (respondida) return;
+      respondida = true;
+
+      const atual = perguntas[indice];
+      const botoes = elementoAlternativas.querySelectorAll("button");
+
+      botoes.forEach((botao, i) => {
+        botao.disabled = true;
+
+        if (i === atual.correta) {
+          botao.classList.add("correta");
+        } else if (i === escolha) {
+          botao.classList.add("errada");
+        }
+      });
+
+      if (escolha === atual.correta) {
+        acertos++;
+        elementoFeedback.textContent = "Correto! " + atual.explicacao;
+      } else {
+        elementoFeedback.textContent =
+          "Não foi dessa vez. " + atual.explicacao;
+      }
+
+      document.getElementById("placar").textContent =
+        `Acertos: ${acertos}`;
+
+      document.getElementById("barra").style.width =
+        `${((indice + 1) / perguntas.length) * 100}%`;
+
+      document.getElementById("progresso").setAttribute(
+        "aria-valuenow",
+        indice + 1
+      );
+
+      botaoProximo.hidden = false;
+      botaoProximo.textContent =
+        indice === perguntas.length - 1
+          ? "Ver resultado"
+          : "Próxima pergunta";
+
+      botaoProximo.focus();
+    }
+
+    function mostrarResultado() {
+      document.getElementById("jogo").hidden = true;
+      document.getElementById("resultado").hidden = false;
+
+      document.getElementById("pontuacao").textContent =
+        `${acertos} / ${perguntas.length}`;
+
+      let mensagem;
+
+      if (acertos === perguntas.length) {
+        mensagem = "Excelente! Você demonstrou um ótimo conhecimento de segurança digital.";
+      } else if (acertos >= 4) {
+        mensagem = "Muito bem! Você conhece boas práticas. Continue aprendendo para se proteger ainda mais.";
+      } else {
+        mensagem = "Esse é o começo! Revise os conteúdos do CyberGuard e tente novamente.";
+      }
+
+      document.getElementById("mensagemFinal").textContent = mensagem;
+    }
+
+    botaoProximo.addEventListener("click", () => {
+      if (indice < perguntas.length - 1) {
+        indice++;
+        mostrarPergunta();
+        elementoPergunta.focus?.();
+      } else {
+        mostrarResultado();
+      }
+    });
+
+    document.getElementById("reiniciar").addEventListener("click", () => {
+      indice = 0;
+      acertos = 0;
+      document.getElementById("jogo").hidden = false;
+      document.getElementById("resultado").hidden = true;
+      mostrarPergunta();
+    });
+
+    mostrarPergunta();
+  </script>
+</body>
+</html>

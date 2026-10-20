@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Confira dicas práticas para navegar com mais segurança na internet.">
+  <title>Dicas de Segurança | CyberGuard</title>
+
+  <style>
+    :root {
+      --fundo: #07111f;
+      --painel: #101e30;
+      --verde: #42e69b;
+      --texto: #f1f5f9;
+      --suave: #aab8c9;
+      --borda: #26384d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--fundo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 20px;
+      border-bottom: 1px solid var(--borda);
+    }
+
+    nav {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--texto);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--verde);
+    }
+
+    nav .logo {
+      color: var(--verde);
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    main {
+      width: min(1000px, 92%);
+      margin: 55px auto;
+    }
+
+    .introducao {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .etiqueta {
+      color: var(--verde);
+      font-size: .8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin: 14px 0;
+    }
+
+    .suave {
+      color: var(--suave);
+      line-height: 1.7;
+    }
+
+    .destaque {
+      background: var(--painel);
+      border: 1px solid var(--borda);
+      border-radius: 18px;
+      padding: clamp(24px, 5vw, 40px);
+      text-align: center;
+    }
+
+    .icone {
+      font-size: 3rem;
+      margin: 15px 0;
+    }
+
+    #categoria {
+      color: var(--verde);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: .8rem;
+      font-weight: bold;
+    }
+
+    #tituloDica {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      margin: 15px 0;
+    }
+
+    #textoDica {
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    button {
+      margin-top: 25px;
+      padding: 14px 22px;
+      border: 0;
+      border-radius: 9px;
+      background: var(--verde);
+      color: #07111f;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      filter: brightness(.92);
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--verde);
+      outline-offset: 4px;
+    }
+
+    .grade {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 35px;
+    }
+
+    .cartao {
+      background: var(--painel);
+      border: 1px solid var(--borda);
+      border-radius: 14px;
+      padding: 22px;
+    }
+
+    .cartao h3 {
+      margin-top: 0;
+    }
+
+    .cartao p {
+      color: var(--suave);
+      line-height: 1.7;
+      font-size: .95rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--borda);
+      padding: 24px;
+      margin-top: 55px;
+      text-align: center;
+      color: var(--suave);
+    }
+
+    @media (max-width: 700px) {
+      .grade {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      main {
+        margin-top: 35px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav aria-label="Navegação principal">
+      <a class="logo" href="index.html">CyberGuard.</a>
+      <a href="index.html">Início</a>
+      <a href="galeria.html">Conteúdos</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="senhas.html">Verificar senha</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="introducao">
+      <span class="etiqueta">Sua segurança em primeiro lugar</span>
+      <h1>Dicas de Segurança Digital</h1>
+      <p class="suave">
+        Pequenas atitudes podem fazer uma grande diferença
+        na proteção dos seus dados e das suas contas.
+      </p>
+    </section>
+
+    <section class="destaque" aria-labelledby="tituloDica">
+      <span class="etiqueta">Dica para você</span>
+      <div class="icone" id="iconeDica" aria-hidden="true">🛡️</div>
+      <p id="categoria">Proteção de contas</p>
+      <h2 id="tituloDica">Ative a autenticação em dois fatores</h2>
+      <p id="textoDica" class="suave" aria-live="polite">
+        Sempre que possível, adicione uma segunda etapa de verificação
+        às suas contas para dificultar acessos indevidos.
+      </p>
+      <button type="button" id="proximaDica">Ver outra dica →</button>
+      <p id="contador" class="suave">Dica 1 de 8</p>
+    </section>
+
+    <section class="grade" aria-label="Hábitos importantes">
+      <article class="cartao">
+        <h3>🔑 Senhas únicas</h3>
+        <p>Use uma senha diferente para cada conta e considere um gerenciador de senhas confiável.</p>
+      </article>
+
+      <article class="cartao">
+        <h3>🎣 Cuidado com golpes</h3>
+        <p>Desconfie de mensagens urgentes, links inesperados e pedidos de dados pessoais.</p>
+      </article>
+
+      <article class="cartao">
+        <h3>🔄 Atualizações</h3>
+        <p>Mantenha o sistema, o navegador e os aplicativos atualizados para receber correções de segurança.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>CyberGuard — Conhecimento é sua primeira linha de defesa.</p>
+  </footer>
+
+  <script>
+    const dicas = [
+      {
+        icone: "🛡️",
+        categoria: "Proteção de contas",
+        titulo: "Ative a autenticação em dois fatores",
+        texto: "Sempre que possível, adicione uma segunda etapa de verificação às suas contas para dificultar acessos indevidos."
+      },
+      {
+        icone: "🔑",
+        categoria: "Senhas",
+        titulo: "Use senhas longas e únicas",
+        texto: "Evite repetir senhas em serviços diferentes. Um gerenciador confiável pode ajudar você a criar e guardar senhas fortes."
+      },
+      {
+        icone: "🎣",
+        categoria: "Phishing",
+        titulo: "Pense antes de clicar",
+        texto: "Desconfie de mensagens com urgência exagerada, prêmios inesperados ou links que pedem suas credenciais. Acesse o site oficial diretamente."
+      },
+      {
+        icone: "🔄",
+        categoria: "Atualizações",
+        titulo: "Mantenha seus dispositivos atualizados",
+        texto: "Atualizações podem corrigir falhas de segurança. Ative as atualizações automáticas quando for adequado."
+      },
+      {
+        icone: "📶",
+        categoria: "Redes públicas",
+        titulo: "Tenha cuidado com Wi-Fi público",
+        texto: "Confira se a rede é legítima, prefira conexões seguras e evite operações sensíveis em redes que você não considera confiáveis."
+      },
+      {
+        icone: "🕵️",
+        categoria: "Privacidade",
+        titulo: "Compartilhe menos dados pessoais",
+        texto: "Revise as configurações de privacidade e evite publicar endereço, documentos, localização em tempo real ou informações da sua rotina."
+      },
+      {
+        icone: "💾",
+        categoria: "Backup",
+        titulo: "Faça cópias de segurança",
+        texto: "Mantenha cópias dos arquivos importantes em outro dispositivo ou serviço confiável. Verifique se consegue restaurá-las."
+      },
+      {
+        icone: "📥",
+        categoria: "Downloads",
+        titulo: "Baixe arquivos de fontes confiáveis",
+        texto: "Evite programas piratas e anexos inesperados. Verifique a origem do arquivo antes de abri-lo ou instalá-lo."
+      }
+    ];
+
+    let indiceAtual = 0;
+
+    const icone = document.getElementById("iconeDica");
+    const categoria = document.getElementById("categoria");
+    const titulo = document.getElementById("tituloDica");
+    const texto = document.getElementById("textoDica");
+    const contador = document.getElementById("contador");
+
+    function mostrarDica(indice) {
+      const dica = dicas[indice];
+
+      icone.textContent = dica.icone;
+      categoria.textContent = dica.categoria;
+      titulo.textContent = dica.titulo;
+      texto.textContent = dica.texto;
+      contador.textContent = `Dica ${indice + 1} de ${dicas.length}`;
+    }
+
+    document.getElementById("proximaDica").addEventListener("click", () => {
+      indiceAtual = (indiceAtual + 1) % dicas.length;
+      mostrarDica(indiceAtual);
+    });
+
+    mostrarDica(indiceAtual);
+  </script>
+</body>
+</html>

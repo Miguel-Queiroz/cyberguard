@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aprenda a avaliar a força de senhas com o CyberGuard.">
+  <title>Verificador de Senhas | CyberGuard</title>
+
+  <style>
+    :root {
+      --fundo: #07111f;
+      --painel: #101e30;
+      --verde: #42e69b;
+      --texto: #f1f5f9;
+      --suave: #aab8c9;
+      --borda: #26384d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--fundo);
+      color: var(--texto);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+      border-bottom: 1px solid var(--borda);
+      padding: 20px;
+    }
+
+    nav {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--texto);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--verde);
+    }
+
+    nav .logo {
+      color: var(--verde);
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    main {
+      width: min(650px, 92%);
+      margin: 55px auto;
+    }
+
+    .introducao {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .etiqueta {
+      color: var(--verde);
+      font-size: .8rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin: 14px 0;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
+    .suave {
+      color: var(--suave);
+    }
+
+    .painel {
+      background: var(--painel);
+      border: 1px solid var(--borda);
+      border-radius: 18px;
+      padding: clamp(20px, 5vw, 32px);
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .campo {
+      display: flex;
+      gap: 8px;
+    }
+
+    input {
+      min-width: 0;
+      flex: 1;
+      padding: 14px;
+      border: 1px solid var(--borda);
+      border-radius: 9px;
+      background: #07111f;
+      color: var(--texto);
+      font-size: 1rem;
+    }
+
+    button {
+      cursor: pointer;
+      border-radius: 9px;
+      font-size: .95rem;
+      font-weight: bold;
+    }
+
+    input:focus-visible,
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--verde);
+      outline-offset: 3px;
+    }
+
+    .secundario {
+      background: #1b3046;
+      color: var(--texto);
+      border: 1px solid var(--borda);
+      padding: 12px;
+    }
+
+    .medidor {
+      height: 8px;
+      margin-top: 24px;
+      background: #26384d;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    #barra {
+      height: 100%;
+      width: 0;
+      background: var(--verde);
+      transition: width .25s;
+    }
+
+    #nivel {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    .criterios {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .criterios li {
+      color: var(--suave);
+      display: flex;
+      gap: 10px;
+      line-height: 1.5;
+    }
+
+    .criterios li.ok {
+      color: var(--verde);
+    }
+
+    .aviso {
+      border: 1px solid var(--borda);
+      padding: 14px;
+      border-radius: 10px;
+      color: var(--suave);
+      font-size: .9rem;
+      margin-top: 24px;
+    }
+
+    .limpar {
+      width: 100%;
+      margin-top: 20px;
+      padding: 13px;
+      background: var(--verde);
+      color: #07111f;
+      border: 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--borda);
+      padding: 24px;
+      text-align: center;
+      color: var(--suave);
+      margin-top: 55px;
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        justify-content: center;
+      }
+
+      main {
+        margin-top: 35px;
+      }
+
+      .campo {
+        flex-wrap: wrap;
+      }
+
+      .campo input {
+        flex-basis: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav aria-label="Navegação principal">
+      <a class="logo" href="index.html">CyberGuard.</a>
+      <a href="index.html">Início</a>
+      <a href="galeria.html">Conteúdos</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="introducao">
+      <span class="etiqueta">Proteção digital</span>
+      <h1>Verificador de Senhas</h1>
+      <p class="suave">
+        Descubra se sua senha atende a critérios importantes
+        de segurança e aprenda como fortalecê-la.
+      </p>
+    </section>
+
+    <section class="painel">
+      <label for="senha">Digite uma senha de teste</label>
+
+      <div class="campo">
+        <input
+          type="password"
+          id="senha"
+          placeholder="Digite uma senha fictícia..."
+          autocomplete="off"
+          spellcheck="false"
+          aria-describedby="aviso"
+        >
+        <button
+          type="button"
+          class="secundario"
+          id="mostrar"
+          aria-pressed="false"
+        >Mostrar</button>
+      </div>
+
+      <div class="medidor"
+        role="progressbar"
+        aria-label="Critérios de segurança atendidos"
+        aria-valuemin="0"
+        aria-valuemax="5"
+        aria-valuenow="0"
+        id="progresso">
+        <div id="barra"></div>
+      </div>
+
+      <p id="nivel" aria-live="polite">Aguardando senha</p>
+      <p id="resumo" class="suave">
+        Digite uma senha fictícia para começar a análise.
+      </p>
+
+      <h2>Critérios de segurança</h2>
+      <ul class="criterios">
+        <li id="c1"><span>○</span> Pelo menos 12 caracteres</li>
+        <li id="c2"><span>○</span> Letras maiúsculas e minúsculas</li>
+        <li id="c3"><span>○</span> Pelo menos um número</li>
+        <li id="c4"><span>○</span> Pelo menos um símbolo</li>
+        <li id="c5"><span>○</span> Sem sequências comuns, como 1234 ou abcd</li>
+      </ul>
+
+      <p class="aviso" id="aviso">
+        Privacidade: a análise acontece localmente nesta página.
+        Não digite sua senha real ou a senha de uma conta pessoal.
+        Este verificador é educativo e não garante que uma senha
+        seja impossível de descobrir.
+      </p>
+
+      <button type="button" class="limpar" id="limpar">
+        Limpar análise
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <p>CyberGuard — Conhecimento é sua primeira linha de defesa.</p>
+  </footer>
+
+  <script>
+    const campoSenha = document.getElementById("senha");
+    const botaoMostrar = document.getElementById("mostrar");
+    const barra = document.getElementById("barra");
+    const progresso = document.getElementById("progresso");
+    const nivel = document.getElementById("nivel");
+    const resumo = document.getElementById("resumo");
+
+    function analisarSenha() {
+      const senha = campoSenha.value;
+
+      const criterios = [
+        senha.length >= 12,
+        /[a-z]/.test(senha) && /[A-Z]/.test(senha),
+        /\d/.test(senha),
+        /[^A-Za-z0-9]/.test(senha),
+        senha.length > 0 &&
+  !/(0123|1234|2345|3456|4567|5678|6789|9876|8765|7654|6543|5432|4321|abcd|bcde|cdef|dcba|qwer|asdf|password)/i.test(senha)
+      criterios.forEach((atendido, indice) => {
+        const item = document.getElementById(`c${indice + 1}`);
+        item.classList.toggle("ok", atendido);
+        item.querySelector("span").textContent = atendido ? "✓" : "○";
+      });
+
+      const pontos = senha.length === 0
+        ? 0
+        : criterios.filter(Boolean).length;
+
+      barra.style.width = `${pontos * 20}%`;
+      progresso.setAttribute("aria-valuenow", pontos);
+
+      if (senha.length === 0) {
+        nivel.textContent = "Aguardando senha";
+        resumo.textContent =
+          "Digite uma senha fictícia para começar a análise.";
+      } else if (pontos <= 2) {
+        nivel.textContent = "Precisa melhorar";
+        resumo.textContent =
+          `${pontos} de 5 critérios atendidos. Tente fortalecer a senha.`;
+      } else if (pontos <= 4) {
+        nivel.textContent = "Boa base";
+        resumo.textContent =
+          `${pontos} de 5 critérios atendidos. Ainda há melhorias possíveis.`;
+      } else {
+        nivel.textContent = "Todos os critérios atendidos";
+        resumo.textContent =
+          "A senha passou nos cinco critérios desta ferramenta educativa.";
+      }
+    }
+
+    campoSenha.addEventListener("input", analisarSenha);
+
+    botaoMostrar.addEventListener("click", () => {
+      const estaOculta = campoSenha.type === "password";
+
+      campoSenha.type = estaOculta ? "text" : "password";
+      botaoMostrar.textContent = estaOculta ? "Ocultar" : "Mostrar";
+      botaoMostrar.setAttribute("aria-pressed", String(estaOculta));
+    });
+
+    document.getElementById("limpar").addEventListener("click", () => {
+      campoSenha.value = "";
+      campoSenha.type = "password";
+      botaoMostrar.textContent = "Mostrar";
+      botaoMostrar.setAttribute("aria-pressed", "false");
+      analisarSenha();
+      campoSenha.focus();
+    });
+  </script>
+</body>
+</html>
